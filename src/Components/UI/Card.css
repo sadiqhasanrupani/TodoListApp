@@ -1,0 +1,15 @@
+/* .card {
+  margin: 2% auto;
+  max-width: 95%;
+  width: 55%;
+  height: 13rem;
+  border-radius: 12px;
+  box-sizing: border-box;
+  background-color: rgba(164, 164, 164, 0.618);
+  box-shadow: 1px 0px 6px 0px;
+} */
+.card {
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px 0px rgba(14, 14, 21, 0.664);
+  box-sizing: border-box;
+}

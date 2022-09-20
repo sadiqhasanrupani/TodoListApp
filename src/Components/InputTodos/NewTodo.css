@@ -1,0 +1,7 @@
+.todo-card {
+  max-width: 95%;
+  width: 60%;
+  margin: 2% auto;
+  padding: 1rem;
+  background-color: rgba(192, 125, 255, 0.723);
+}

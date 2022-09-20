@@ -1,0 +1,16 @@
+.todos-card {
+  max-width: 95%;
+  width: 90%;
+  margin: 2% auto;
+  height: 5rem;
+}
+.todo-flex{
+  margin: 2% auto;
+  padding: 4% 0% 4% 0%;
+  max-width: 95%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
