@@ -2,11 +2,11 @@
   max-width: 95%;
   width: 90%;
   margin: 2% auto;
-  height: 5rem;
+  /* height: 4.2rem; */
 }
 .todo-flex{
   margin: 2% auto;
-  padding: 4% 0% 4% 0%;
+  padding: 0.9rem 0.5rem 0.9rem 0.5rem;
   max-width: 95%;
   width: 100%;
   display: flex;
