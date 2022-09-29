@@ -1,22 +1,39 @@
 import React, { useState } from "react";
 import TodoBox from "./Components/Todos/TodoBox";
 import NewTodo from "./Components/InputTodos/NewTodos";
-
-const DEFAULT_TODOS = [
-  {
-    key: "t-1",
-    todo: "Write you todos in the textbox",
-  },
-];
+import "./App.css";
 
 const App = () => {
-
-  const [todosData, setTodos] = useState(DEFAULT_TODOS);
+  const [todosData, setTodos] = useState([]);
 
   const addFormData = (formData) => {
     setTodos((prevTodos) => {
-      return [formData, ...prevTodos]
-    })
+      const updatedTodos = [...prevTodos];
+      updatedTodos.unshift({ ...formData });
+      return updatedTodos;
+    });
+  };
+
+  const onDeleteHandler = (todoId) => {
+    // console.log("From app")
+    // console.log(todoId)
+    setTodos((prevTodos) => {
+      let index = prevTodos
+        .map((id) => {
+          return id.key;
+        })
+        .indexOf(todoId);
+
+      console.log(index);
+
+      prevTodos.splice(index, ++index);
+
+      let updatedTodos = [...prevTodos];
+
+      console.log(updatedTodos);
+
+      return updatedTodos;
+    });
   };
 
   return (
@@ -25,7 +42,11 @@ const App = () => {
         <NewTodo onNewTodos={addFormData} />
       </div>
       <div>
-        <TodoBox todos={todosData} />
+        <TodoBox
+          deleteHandler={onDeleteHandler}
+          todos={todosData}
+          Data={todosData.length}
+        />
       </div>
     </div>
   );

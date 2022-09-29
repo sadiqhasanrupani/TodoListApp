@@ -1,21 +1,24 @@
 import React from "react";
 import Card from "../UI/Card";
-import Todos from "./Todos";
+import TodoItem from "./TodoItem";
 import "./TodoBox.css";
 
 const TodoBox = (props) => {
+
+  let content;
+
+  if(props.Data=== 0) {
+    content = <p className="content">Todos are Empty!</p>;
+  }
+
   return (
     <Card className="todo-box">
       <div className="todo-head">
         <h3>Todo List</h3>
       </div>
+      <div>{content}</div>
       <div>
-        {props.todos.map((todo) => {
-          return <Todos
-            key={todo.key}
-            name={todo.todo}
-          />
-        })}
+        <TodoItem onDelete={props.deleteHandler} todos={props.todos}/>
       </div>
     </Card>
   );
