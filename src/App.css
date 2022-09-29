@@ -6,3 +6,8 @@
   font-family: Poppins-Bold;
   color: #c00000;
 }
+@media (max-width: 768px) {
+  .content {
+    font-size: large;
+  }
+}

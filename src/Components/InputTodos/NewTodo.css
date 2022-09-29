@@ -5,3 +5,9 @@
   padding: 1rem;
   background-color: rgba(192, 125, 255, 0.723);
 }
+
+@media (max-width: 768px)  {
+  .todo-card {
+    width: 100%;    
+  }
+}

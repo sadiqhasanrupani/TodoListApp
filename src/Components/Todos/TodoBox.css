@@ -14,3 +14,12 @@
   padding: 1%;
   background-color: rgb(203, 203, 203);
 }
+
+@media (max-width: 768px) {
+  .todo-box{
+    width: 100%;
+  }
+  .todo-box .todo-head h3 {
+    font-size: large;
+  }
+}
