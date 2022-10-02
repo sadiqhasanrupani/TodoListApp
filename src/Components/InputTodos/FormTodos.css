@@ -41,6 +41,10 @@
   border: 1px solid rgb(56, 46, 73);
 }
 
+.flex.invalid input{
+  border: 2px solid red;
+}
+
 @media (max-width: 768px) {
   .flex {
     display: flex;

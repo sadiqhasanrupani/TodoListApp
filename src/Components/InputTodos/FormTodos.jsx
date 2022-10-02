@@ -7,6 +7,9 @@ const FormTodos = (props) => {
   let [isValid, setIsValid] = useState(false)
 
   const getInput = (e) => {
+    if(e.target.value.trim().length > 0){
+      setIsValid(false);
+    }
     setEnteredInput(e.target.value);
   };
 
@@ -21,12 +24,12 @@ const FormTodos = (props) => {
     };
     if (enteredInput.trim().length === 0) {
       setIsValid(true)
-      // console.log(isValid)
+      console.log(isValid)
       return;
     }
-    else {
-      setIsValid(false)
-    }
+    // else {
+    //   setIsValid(false)
+    // }
     // console.log(formData);
     // console.log(typeof(enteredInput));
 
@@ -36,15 +39,15 @@ const FormTodos = (props) => {
   };
 
   return (
+    
     <form onSubmit={formSubmit}>
-      <div className="flex">
+      <div className={`flex ${isValid ? 'invalid': ''}`}>
         <div>
           <input
             type="text"
             value={enteredInput}
             placeholder="Type your todos here"
             onChange={getInput}
-            style={!isValid ? {borderColor:"gray"}: {border:"2px solid red"}}
           />
         </div>
         <div className="add-btn">
