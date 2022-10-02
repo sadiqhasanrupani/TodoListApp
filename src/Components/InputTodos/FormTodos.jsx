@@ -1,13 +1,55 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import "./FormTodos.css";
+
+// Using Styled Components
+const FormControl = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 2%;
+  justify-content: space-between;
+
+  & div {
+    max-width: 90%;
+    width: 40%;
+  }
+
+  & div input {
+    width: 100%;
+    height: 2rem;
+    padding-left: 10%;
+    outline: none;
+    border: 2px solid ${(props) => (props.invalid ? "#FF001E" : "white")};
+    background-color: ${props => props.invalid ? '#E7D3FF' : ''};
+    border-radius: 5px;
+  }
+
+  & input::placeholder {
+    color: ${props => props.invalid ? '#FF001E' : ''};
+    font-weight: ${props => props.invalid ? '600' : ''};
+  }
+  @media (max-width: 768px) {
+    & {
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+    }
+    & div {
+      width: 100%;
+    }
+    & div input {
+      width: 10rem;
+    }
+  }
+`;
 
 const FormTodos = (props) => {
   const [enteredInput, setEnteredInput] = useState("");
   let [count, setCount] = useState(0);
-  let [isValid, setIsValid] = useState(false)
+  let [isValid, setIsValid] = useState(false);
 
   const getInput = (e) => {
-    if(e.target.value.trim().length > 0){
+    if (e.target.value.trim().length > 0) {
       setIsValid(false);
     }
     setEnteredInput(e.target.value);
@@ -23,8 +65,8 @@ const FormTodos = (props) => {
       key: count,
     };
     if (enteredInput.trim().length === 0) {
-      setIsValid(true)
-      console.log(isValid)
+      setIsValid(true);
+      console.log(isValid);
       return;
     }
     // else {
@@ -39,9 +81,8 @@ const FormTodos = (props) => {
   };
 
   return (
-    
     <form onSubmit={formSubmit}>
-      <div className={`flex ${isValid ? 'invalid': ''}`}>
+      <FormControl invalid={isValid}>
         <div>
           <input
             type="text"
@@ -53,7 +94,7 @@ const FormTodos = (props) => {
         <div className="add-btn">
           <button className="add-button">Add</button>
         </div>
-      </div>
+      </FormControl>
     </form>
   );
 };
